@@ -6,10 +6,7 @@ import Link from "next/link";
 import {
   ChevronDown,
   Headphones,
-  MessageCircle,
   Sparkles,
-  Users,
-  Zap,
 } from "lucide-react";
 import { BrandWord, withBrandWord } from "@/components/brand/brand-word";
 import { buttonVariants } from "@/components/ui/button";
@@ -120,17 +117,17 @@ export function ProductFaqSection() {
           </div>
 
           <div className="lg:col-span-6">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
+            <div className="relative mx-auto max-w-md lg:mx-0 lg:max-w-none">
               <p
                 className={cn(
                   hand.className,
-                  "absolute -top-1 right-2 z-20 max-w-[8rem] text-right text-[22px] font-semibold leading-tight text-[#7C3AED] sm:right-6",
+                  "absolute -top-2 right-0 z-20 max-w-[8rem] text-right text-[22px] font-semibold leading-tight text-[#7C3AED] sm:right-4",
                 )}
               >
                 Still have questions?
               </p>
               <svg
-                className="absolute right-16 top-10 z-20 h-10 w-12 text-[#7C3AED] sm:right-24"
+                className="absolute right-14 top-10 z-20 h-10 w-12 text-[#7C3AED] sm:right-20"
                 viewBox="0 0 48 40"
                 fill="none"
                 aria-hidden
@@ -151,51 +148,19 @@ export function ProductFaqSection() {
                 />
               </svg>
 
-              <div className="relative mx-auto aspect-[4/5] max-w-[380px]">
-                <div className="absolute inset-x-6 bottom-8 top-16 rounded-[45%_55%_50%_50%/55%_45%_55%_45%] bg-gradient-to-br from-[#E8EAFF] via-[#F3E8FF] to-[#EEF0FF]" />
-
-                <div className="absolute bottom-6 left-1/2 w-[88%] -translate-x-1/2">
-                  <div className="relative overflow-hidden rounded-[28px] bg-white/40 shadow-[0_24px_60px_rgba(73,74,253,0.18)]">
-                    <Image
-                      src="/marketing/avatar-sarah.jpg"
-                      alt="LOOP support specialist"
-                      width={480}
-                      height={560}
-                      className="h-[340px] w-full object-cover object-top sm:h-[380px]"
-                    />
-                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#EEF0FF]/90 to-transparent" />
-                  </div>
-                </div>
-
-                <div className="absolute left-0 top-24 z-10 flex items-center gap-2 rounded-2xl bg-white px-3 py-2.5 shadow-[0_12px_32px_rgba(15,23,42,0.12)] sm:-left-2">
-                  <span className="inline-flex size-8 items-center justify-center rounded-xl bg-[#EEF0FF] text-[#494AFD]">
-                    <MessageCircle className="size-4" />
-                  </span>
-                  <p className="text-[13px] font-semibold text-navy">
-                    We&apos;re here to help!
-                  </p>
-                </div>
-
-                <div className="absolute right-0 top-36 z-10 flex items-center gap-2 rounded-2xl bg-white px-3 py-2.5 shadow-[0_12px_32px_rgba(15,23,42,0.12)] sm:-right-1">
-                  <span className="inline-flex size-8 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
-                    <Zap className="size-4" fill="currentColor" />
-                  </span>
-                  <p className="text-[13px] font-semibold text-navy">
-                    Fast support
-                  </p>
-                </div>
-
-                <div className="absolute bottom-28 right-0 z-10 flex items-center gap-2 rounded-2xl bg-white px-3 py-2.5 shadow-[0_12px_32px_rgba(15,23,42,0.12)] sm:-right-1">
-                  <span className="inline-flex size-8 items-center justify-center rounded-xl bg-pink-50 text-pink-500">
-                    <Users className="size-4" />
-                  </span>
-                  <p className="text-[13px] font-semibold text-navy">
-                    Real humans
-                  </p>
-                </div>
+              <div className="relative mx-auto mt-8 max-w-[420px]">
+                <div className="pointer-events-none absolute -inset-6 rounded-[40px] bg-[#494AFD]/15 blur-2xl" />
+                <Image
+                  src="/marketing/faq-support.png"
+                  alt="LOOP support — real humans, ready to help"
+                  width={840}
+                  height={900}
+                  className="relative h-auto w-full drop-shadow-[0_24px_60px_rgba(73,74,253,0.2)]"
+                  priority={false}
+                />
               </div>
 
-              <div className="mt-4 flex flex-col gap-3 rounded-2xl bg-white p-4 shadow-[0_16px_40px_rgba(15,23,42,0.08)] sm:flex-row sm:items-center sm:justify-between sm:p-5">
+              <div className="mt-6 flex flex-col gap-3 rounded-2xl bg-white p-4 shadow-[0_16px_40px_rgba(15,23,42,0.08)] sm:flex-row sm:items-center sm:justify-between sm:p-5">
                 <div className="flex items-start gap-3">
                   <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#EEF0FF] text-[#494AFD]">
                     <Headphones className="size-5" />
