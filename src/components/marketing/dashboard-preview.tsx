@@ -12,14 +12,18 @@ import { LoopMark } from "@/components/brand/logo";
 import { BrandWord } from "@/components/brand/brand-word";
 import { cn } from "@/lib/cn";
 
-const NAV = [
+const NAV: {
+  label: string;
+  Icon: typeof LayoutDashboard;
+  active?: boolean;
+}[] = [
   { label: "Overview", Icon: LayoutDashboard, active: true },
   { label: "Inbox", Icon: Inbox },
   { label: "Themes", Icon: Layers3 },
   { label: "Trends", Icon: TrendingUp },
   { label: "Ask LOOP", Icon: Sparkles },
   { label: "Reports", Icon: FileText },
-] as const;
+];
 
 const KPIS = [
   { label: "Total feedback", value: "12,842", delta: "+16.4%", up: true },

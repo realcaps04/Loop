@@ -1,5 +1,8 @@
 import { SiteShell } from "@/components/marketing/site-shell";
 import { ProductHero } from "@/components/marketing/product-hero";
+import { ProductUnifySection } from "@/components/marketing/product-unify-section";
+import { ProductAISection } from "@/components/marketing/product-ai-section";
+import { ProductThemesSection } from "@/components/marketing/product-themes-section";
 import { BrandWord } from "@/components/brand/brand-word";
 
 export const metadata = { title: "Product · LOOP" };
@@ -35,6 +38,9 @@ export default function ProductPage() {
   return (
     <SiteShell>
       <ProductHero />
+      <ProductUnifySection />
+      <ProductAISection />
+      <ProductThemesSection />
       <section className="border-t border-slate-100 bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <p className="text-center text-[12px] font-semibold uppercase tracking-[0.16em] text-[#494AFD]">

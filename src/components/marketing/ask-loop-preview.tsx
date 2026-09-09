@@ -18,14 +18,19 @@ import { LoopMark } from "@/components/brand/logo";
 import { BrandWord } from "@/components/brand/brand-word";
 import { cn } from "@/lib/cn";
 
-const NAV = [
+const NAV: {
+  label: string;
+  Icon: typeof LayoutDashboard;
+  active?: boolean;
+  badge?: string;
+}[] = [
   { label: "Overview", Icon: LayoutDashboard },
   { label: "Inbox", Icon: Inbox, badge: "248" },
   { label: "Themes", Icon: Layers3 },
   { label: "Trends", Icon: TrendingUp },
   { label: "Ask LOOP", Icon: Sparkles, active: true },
   { label: "Reports", Icon: FileText },
-] as const;
+];
 
 const REASONS = [
   {
