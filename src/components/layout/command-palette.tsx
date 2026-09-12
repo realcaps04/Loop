@@ -41,18 +41,21 @@ export function CommandPalette() {
   const [active, setActive] = useState(0);
 
   const commands = useMemo<Command[]>(() => {
+    if (!session) return [];
     const ingest = canIngest(session.user.role);
     return [
-      { id: "dash", label: "Dashboard", group: "Navigate", href: "/dashboard" },
-      { id: "inbox", label: "Inbox", group: "Navigate", href: "/inbox" },
+      { id: "dash", label: "Overview", group: "Navigate", href: "/dashboard" },
+      { id: "inbox", label: "Feedback", group: "Navigate", href: "/inbox" },
+      { id: "analysis", label: "Analysis", group: "Navigate", href: "/analysis" },
+      { id: "actions", label: "Actions", group: "Navigate", href: "/actions" },
+      { id: "people", label: "People", group: "Navigate", href: "/people" },
       { id: "themes", label: "Themes", group: "Navigate", href: "/themes" },
-      { id: "trends", label: "Trends", group: "Navigate", href: "/trends" },
-      { id: "ask", label: "Ask LOOP", group: "Navigate", href: "/ask" },
+      { id: "integrations", label: "Integrations", group: "Navigate", href: "/integrations" },
       { id: "reports", label: "Reports", group: "Navigate", href: "/reports" },
       { id: "settings", label: "Settings", group: "Navigate", href: "/settings" },
       {
         id: "add",
-        label: "Add feedback",
+        label: "Collect feedback",
         group: "Actions",
         hint: ingest ? undefined : "Analysts and admins only",
         action: () => {
@@ -67,26 +70,8 @@ export function CommandPalette() {
           setAddFeedbackOpen(true);
         },
       },
-      {
-        id: "csv",
-        label: "Upload CSV",
-        group: "Actions",
-        href: "/inbox",
-      },
-      {
-        id: "ask-action",
-        label: "Ask LOOP",
-        group: "Actions",
-        href: "/ask",
-      },
-      {
-        id: "report",
-        label: "Generate report",
-        group: "Actions",
-        href: "/reports",
-      },
     ];
-  }, [notify, session.user.role, setAddFeedbackOpen]);
+  }, [notify, session, setAddFeedbackOpen]);
 
   const filtered = commands.filter((command) =>
     command.label.toLowerCase().includes(query.toLowerCase()),

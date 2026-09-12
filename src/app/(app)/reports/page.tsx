@@ -1,5 +1,12 @@
-import { ReportsView } from "@/components/reports/reports-view";
+"use client";
+
+import { WorkspaceEmptyPage } from "@/components/layout/workspace-empty-page";
 
 export default function ReportsPage() {
-  return <ReportsView />;
+  return (
+    <WorkspaceEmptyPage
+      title="Reports"
+      description="Voice-of-customer reports will be generated from your live feedback."
+    />
+  );
 }

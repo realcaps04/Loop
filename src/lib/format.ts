@@ -1,5 +1,4 @@
 import { formatDistanceToNowStrict, parseISO } from "date-fns";
-import { NOW } from "@/lib/data/demo";
 import type { Channel, DateRangeKey, FeedbackStatus, Role } from "@/lib/types";
 
 export function formatNumber(value: number) {
@@ -15,7 +14,9 @@ export function formatRelative(iso: string) {
   return formatDistanceToNowStrict(parseISO(iso), {
     addSuffix: true,
     roundingMethod: "floor",
-  }).replace("hour", "hr").replace("hours", "hrs");
+  })
+    .replace("hour", "hr")
+    .replace("hours", "hrs");
 }
 
 export function formatDate(iso: string) {
@@ -34,7 +35,7 @@ export function formatDateTime(iso: string) {
   }).format(parseISO(iso));
 }
 
-export function greetingForNow(date = NOW) {
+export function greetingForNow(date = new Date()) {
   const hour = Number(
     new Intl.DateTimeFormat("en-US", {
       hour: "numeric",

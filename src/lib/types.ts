@@ -20,6 +20,7 @@ export type User = {
   role: Role;
   title: string;
   initials: string;
+  avatarUrl?: string | null;
 };
 
 export type Workspace = {

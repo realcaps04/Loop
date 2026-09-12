@@ -1,5 +1,12 @@
-import { ThemeDetailView } from "@/components/themes/theme-detail-view";
+"use client";
 
-export default function ThemeDetailPage({ params }: { params: { id: string } }) {
-  return <ThemeDetailView id={params.id} />;
+import { WorkspaceEmptyPage } from "@/components/layout/workspace-empty-page";
+
+export default function ThemeDetailPage() {
+  return (
+    <WorkspaceEmptyPage
+      title="Theme"
+      description="Theme detail will appear when themes are generated from live feedback."
+    />
+  );
 }

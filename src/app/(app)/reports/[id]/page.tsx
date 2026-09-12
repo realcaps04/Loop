@@ -1,5 +1,12 @@
-import { ReportDetailView } from "@/components/reports/report-detail-view";
+"use client";
 
-export default function ReportDetailPage({ params }: { params: { id: string } }) {
-  return <ReportDetailView id={params.id} />;
+import { WorkspaceEmptyPage } from "@/components/layout/workspace-empty-page";
+
+export default function ReportDetailPage() {
+  return (
+    <WorkspaceEmptyPage
+      title="Report"
+      description="Report detail will appear once reports are generated from live feedback."
+    />
+  );
 }
