@@ -241,7 +241,7 @@ export async function fetchFeedbackList(
   if (error) throw error;
 
   return {
-    rows: ((data as FeedbackRow[]) ?? []).map(normalizeFeedback),
+    rows: ((data as unknown as FeedbackRow[]) ?? []).map(normalizeFeedback),
     total: count ?? 0,
   };
 }
@@ -257,7 +257,7 @@ export async function fetchFeedbackNotes(feedbackId: string) {
     .order("created_at", { ascending: false });
   if (error) throw error;
 
-  return ((data as FeedbackNote[]) ?? []).map((n) => ({
+  return ((data as unknown as FeedbackNote[]) ?? []).map((n) => ({
     ...n,
     author: unwrapOne(n.author as FeedbackNote["author"] | FeedbackNote["author"][]),
   }));
@@ -274,7 +274,7 @@ export async function fetchFeedbackActivity(feedbackId: string) {
     .order("created_at", { ascending: false });
   if (error) throw error;
 
-  return ((data as FeedbackActivity[]) ?? []).map((a) => ({
+  return ((data as unknown as FeedbackActivity[]) ?? []).map((a) => ({
     ...a,
     actor: unwrapOne(a.actor as FeedbackActivity["actor"] | FeedbackActivity["actor"][]),
   }));
