@@ -71,13 +71,14 @@ export function Sidebar() {
       <div className="space-y-3 px-3 pb-4">
         <div className="rounded-2xl bg-gradient-to-br from-[#3B3CE8] to-[#7C3AED] p-4 text-white shadow-loop">
           <p className="text-[12px] font-medium leading-snug text-white/95">
-            Feedback fuels progress. Turn insights into meaningful products.
+            Turn feedback into what&apos;s next. Build better products with your
+            users.
           </p>
           <button
             type="button"
             className="mt-3 w-full rounded-lg bg-white px-3 py-2 text-[12px] font-semibold text-[#494AFD] transition hover:bg-white/95"
           >
-            Upgrade
+            Upgrade Plan
           </button>
         </div>
 

@@ -35,12 +35,14 @@ export function AddFeedbackModal() {
   const [content, setContent] = useState("");
   const [channel, setChannel] = useState<Channel>("support_ticket");
   const [customer, setCustomer] = useState("");
+  const [email, setEmail] = useState("");
   const [source, setSource] = useState("");
   const [saving, setSaving] = useState(false);
 
   function reset() {
     setContent("");
     setCustomer("");
+    setEmail("");
     setSource("");
     setChannel("support_ticket");
     setSaving(false);
@@ -69,17 +71,18 @@ export function AddFeedbackModal() {
         content: content.trim(),
         customer_label: label,
         customer_initials: initials(label),
+        customer_email: email.trim(),
         sentiment,
         channel,
         source_ref: source.trim(),
         created_by: session.user.id,
+        assignee_id: session.user.id,
       })
       .select("id, content, created_at")
       .single();
 
-    setSaving(false);
-
     if (error) {
+      setSaving(false);
       notify({
         tone: "error",
         title: "Could not save feedback",
@@ -87,6 +90,16 @@ export function AddFeedbackModal() {
       });
       return;
     }
+
+    await supabase.from("feedback_activity").insert({
+      feedback_id: data.id,
+      workspace_id: session.workspace.id,
+      actor_id: session.user.id,
+      action: "created",
+      detail: "added this feedback",
+    });
+
+    setSaving(false);
 
     const local: Feedback = {
       id: data.id,
@@ -163,6 +176,16 @@ export function AddFeedbackModal() {
                 value={customer}
                 onChange={(e) => setCustomer(e.target.value)}
                 placeholder="Jordan Lee"
+                className="mt-1.5 h-10 w-full rounded-xl border border-line px-3 text-sm outline-none focus:border-accent focus:ring-4 focus:ring-accent/15"
+              />
+            </label>
+            <label className="text-[13px] font-medium">
+              Email
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="jordan@company.com"
                 className="mt-1.5 h-10 w-full rounded-xl border border-line px-3 text-sm outline-none focus:border-accent focus:ring-4 focus:ring-accent/15"
               />
             </label>

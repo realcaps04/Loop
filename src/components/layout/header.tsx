@@ -27,7 +27,7 @@ export function Header() {
         className="flex h-11 min-w-0 flex-1 items-center gap-2.5 rounded-full border border-line bg-[#F8F9FC] px-4 text-left text-[13px] text-ink-muted transition hover:border-[#C7CBFF]"
       >
         <Search className="size-4 shrink-0 text-ink-faint" />
-        <span className="truncate">Search feedback, people, themes...</span>
+        <span className="truncate">Search feedback, users, tags, or keywords...</span>
       </button>
 
       <div className="flex shrink-0 items-center gap-2">
